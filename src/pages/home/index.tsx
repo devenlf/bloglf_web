@@ -2,12 +2,11 @@
 import { useRef } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
+import  Book from '../../components/book'
 import './index.css';
 
 // import required modules
@@ -41,7 +40,7 @@ const Home = ()  => {
         longSwipesMs={1000}
         speed={1000}
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide><Book></Book></SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
