@@ -41,7 +41,7 @@ const Home = ()  => {
         speed={1000}
       >
         <SwiperSlide><Book></Book></SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 22222</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
         <SwiperSlide>Slide 5</SwiperSlide>
