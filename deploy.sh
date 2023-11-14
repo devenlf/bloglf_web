@@ -3,6 +3,9 @@
 # 发生错误时终止
 set -e
 
+# 安装依赖
+npm install
+
 # 构建
 npm run build
 
