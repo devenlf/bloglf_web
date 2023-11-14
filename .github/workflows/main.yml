@@ -21,8 +21,7 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@3.6.1  # 使用 github-pages-deploy-action 工具
       with:
+        github_token: $ACCESS_TOKEN
         branch: gh-pages  # 推送到 gh-pages 分支
         folder: dist  # 推送的目录
-      env:
-        token: ${{ secrets.ACCESS_TOKEN }}
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+        
