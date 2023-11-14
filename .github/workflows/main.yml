@@ -24,5 +24,5 @@ jobs:
         branch: gh-pages  # 推送到 gh-pages 分支
         folder: dist  # 推送的目录
       env:
-        ACCESS_TOKEN: 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
+        token: ${{ secrets.ACCESS_TOKEN }}
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
