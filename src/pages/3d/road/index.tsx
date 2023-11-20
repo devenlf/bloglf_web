@@ -37,9 +37,8 @@ const Road = () => {
 
   // 加载建筑
     const createBuild =  async() => {
-     const mtl = await LoadMTLL({path:'/3d/build/wild_town/wild_town.mtl'})	
-     console.log(mtl)
-     const obj = await LoadOBJ({path:'/3d/build/wild_town/wild_town.obj', materials:mtl})
+     const mtl = await LoadMTLL({path:'3d/build/wild_town/wild_town.mtl'})	
+     const obj = await LoadOBJ({path:'3d/build/wild_town/wild_town.obj', materials:mtl})
      scene.current?.add( obj );
     // new MTLLoader()
 		// 			.setPath( '3d/' )
