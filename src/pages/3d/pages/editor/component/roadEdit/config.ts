@@ -1,0 +1,34 @@
+export const listImg = [
+    {
+        src:'src/assets/Bricks084_1K-JPG_Color.jpg',
+        type:0,
+    },
+    {
+        src:'src/assets/Bricks089_1K-JPG_Color.jpg',
+        type:1,
+    },
+    {
+        src:'src/assets/Bricks090_1K-JPG_Color.jpg',
+        type:2,
+    },
+    {
+        src:'src/assets/PavingStones070_1K-JPG_Color.jpg',
+        type:3,
+    },
+    {
+        src:'src/assets/PavingStones131_1K-JPG_Color.jpg',
+        type:4,
+    },
+    {
+        src:'src/assets/PavingStones135_1K-JPG_AmbientOcclusion.jpg',
+        type:5,
+    },
+    {
+        src:'src/assets/PavingStones135_1K-JPG_Color.jpg',
+        type:6,
+    },
+    {
+        src:'src/assets/Rubber002_1K-JPG_Color.jpg',
+        type:7,
+    }
+]

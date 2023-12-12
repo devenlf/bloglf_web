@@ -1,0 +1,47 @@
+.root{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.root .top{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+    z-index: 1;
+}
+
+.root .left{
+    position: absolute;
+    width: 258px;
+    z-index: 1;
+    left: 48px;
+    box-shadow: 2px 2px 6px 0px;
+    border-radius: 10px;
+    top: 80px;
+    
+}
+
+.root .left .materialImg{
+    width: 220px;
+    height: 110px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.root .left .materialImg img{
+    width: 100%;
+}
+
+.root .right{
+    position: absolute;
+    z-index:1;
+}
+
+.root .render-box{
+    position: absolute;
+}
