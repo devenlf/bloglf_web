@@ -5,6 +5,8 @@ import "./index.css";
 import { createOrbitControl,createAxesHelper, createGridHelper} from '../../utils/tool'
 import { Radio } from 'antd';
 import RoadEdit from './component/roadEdit';
+import { createRoad } from './component/dom';
+import { mapData } from './data/mock';
 
 const Editor = () => {
     const renderRef = useRef<HTMLDivElement>(null); 
@@ -45,9 +47,15 @@ const Editor = () => {
     createGridHelper({len:200,scene:scene.current})
   } 
 
+  // 生成地形
+  const createBuild = () => {
+    createRoad({data:mapData, scene:scene.current})
+  }
+
   useEffect(()=>{
     if(renderRef.current){
         createScene()
+        createBuild()
         animate()
     }
   },[animate])
@@ -63,7 +71,7 @@ const Editor = () => {
         <div className="left">
             <RoadEdit />
         </div>
-        <div className="right"></div>
+        <div className="right">1</div>
         <div className="render-box" ref={renderRef}></div>
       </div>
     )

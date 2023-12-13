@@ -1,22 +1,47 @@
-  import * as THREE from 'three';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import * as THREE from "three";
 
-  // 创建一个模块
-  export const createGeometry = () => {
-    const geometry = new THREE.BoxGeometry( 4, 1, 4 );
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-    const cube = new THREE.Mesh( geometry, material );
-    return cube
-  }
+const textureLoader = new THREE.TextureLoader();
+type createGeometryType = {
+  x: number;
+  y: number;
+  z: number;
+  yaw: number;
+  map: string;
+};
 
-//   export const transformControl = ({camera,renderer}) =>{
-//         const control = new TransformControls( camera.current, renderer.current.domElement );
-//     		control.addEventListener( 'change', ()=>{console.log(12313)} );
+type createRoad = {
+  data: unknown[];
+  scene: any;
+};
+// 创建一个模块
+export const createGeometry = ({
+  x,
+  y,
+  z,
+  yaw,
+  map,
+}: createGeometryType) => {
+  console.log(x, y, z,'x, y, z')
+  const geometry = new THREE.BoxGeometry(x, y, z);
+  const texture = textureLoader.load(map);
+  const material = new THREE.MeshBasicMaterial({ map: texture });
+  const cube = new THREE.Mesh(geometry, material);
+  // 旋转立方体90度
+  cube.rotateY((Math.PI / 360) * yaw);
+  return cube;
+};
 
-//     		control.addEventListener( 'dragging-changed', function ( event ) {
-//     			controls.current.enabled =! event.value;
-
-//     		} );
-
-//     		control.attach( cube );
-//     		scene.current.add( control );
-//   }
+// 生成路口
+export const createRoad = ({ data, scene }: createRoad) => {
+  data.forEach((item: any) => {
+    const dom = createGeometry({
+      x: item.size.x,
+      y: item.size.y,
+      z: item.size.z,
+      map: item.map,
+      yaw: item.yaw
+    });
+    scene.add(dom);
+  });
+};
