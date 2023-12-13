@@ -27,14 +27,15 @@
 .root .left .materialImg{
     width: 220px;
     height: 110px;
-    border-radius: 10px;
     margin-bottom: 18px;
     overflow: hidden;
     cursor: pointer;
 }
 
 .root .left .materialImg img{
-    width: 100%;
+    width: 90%;
+    height: 100%;
+    border-radius: 10px;
 }
 
 .root .right{
