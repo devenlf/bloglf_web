@@ -32,3 +32,14 @@ export const listImg = [
         type:7,
     }
 ]
+
+export const listImgPublic = {
+    0: '/material/Bricks084_1K-JPG_Color.jpg',
+    1: '/material/Bricks089_1K-JPG_Color.jpg',
+    2: '/material/Bricks090_1K-JPG_Color.jpg',
+    3: '/material/PavingStones070_1K-JPG_Color.jpg',
+    4: '/material/PavingStones131_1K-JPG_Color.jpg',
+    5: '/material/PavingStones135_1K-JPG_AmbientOcclusion.jpg',
+    6: '/material/PavingStones135_1K-JPG_Color.jpg',
+    7: '/material/Rubber002_1K-JPG_Color.jpg'
+}

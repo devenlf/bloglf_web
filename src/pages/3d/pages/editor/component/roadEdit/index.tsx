@@ -10,21 +10,31 @@ import {
 } from "antd";
 import { listImg } from "./config";
 import { useState } from "react";
-const RoadEdit = () => {
-  const [value, setValue] = useState(1);
-  const onFinish = (value: object) => {
-    console.log(value, "value");
+
+type RoadEditType = {
+  onFinish:({
+    material,
+    size
+  }:{material:any,size:any})=> void
+} 
+const RoadEdit = ({onFinish}:RoadEditType) => {
+  const [valueMaterial, setValueMaterial] = useState(1);
+  const handleFinish = (value: object) => {
+    onFinish({
+      material:valueMaterial,
+      size:value
+    })
   };
 
   const onChange = (val: any) => {
-    setValue(val?.target.value)
+    setValueMaterial(val?.target.value)
   };
   const items: CollapseProps["items"] = [
     {
       key: "material",
       label: "材质",
       children: (
-        <Radio.Group onChange={onChange} value={value}>
+        <Radio.Group onChange={onChange} value={valueMaterial}>
           <Space direction="vertical">
             {listImg.map(({ type, src }) => (
               <Radio value={type}>
@@ -49,7 +59,7 @@ const RoadEdit = () => {
           wrapperCol={{ flex: 1 }}
           colon={false}
           style={{ maxWidth: 600 }}
-          onFinish={onFinish}
+          onFinish={handleFinish}
         >
           <Form.Item label="宽度" name="x" rules={[{ required: true }]}>
             <InputNumber />
@@ -63,7 +73,7 @@ const RoadEdit = () => {
             <InputNumber />
           </Form.Item>
 
-          <Form.Item label=" ">
+          <Form.Item>
             <Button type="primary" htmlType="submit">
               设置
             </Button>

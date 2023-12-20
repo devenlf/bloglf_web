@@ -1,20 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as THREE from 'three';
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import "./index.css";
 import { createOrbitControl,createAxesHelper, createGridHelper} from '../../utils/tool'
 import { Radio } from 'antd';
 import RoadEdit from './component/roadEdit';
 import { createRoad } from './component/dom';
+import { listImgPublic} from './component/roadEdit/config.ts'
 import { mapData } from './data/mock';
+import _ from 'lodash';
 
 const Editor = () => {
     const renderRef = useRef<HTMLDivElement>(null); 
     const renderer = useRef<THREE.WebGLRenderer>();
     const scene = useRef<THREE.Scene>();
     const camera = useRef<THREE.PerspectiveCamera>();
-    const controls = useRef<OrbitControls>()
-
+    const controls = useRef<OrbitControls>();
+    const [mapDataVal, setMapDataVal] = useState<any[]>(mapData)
+    const saveMapDataVal = useRef<any[]>([])
+    // 激活模块
+    const [activeRoad,setActiveRoad] = useState(null)
+    // 所有路口实例
+    const [roadModules,setRoadModules] = useState([])
 
      // 渲染器
   const animate = useCallback(() => {
@@ -48,17 +56,57 @@ const Editor = () => {
   } 
 
   // 生成地形
-  const createBuild = () => {
-    createRoad({data:mapData, scene:scene.current})
+  const createBuild = (data:any[]) => {
+    const doms:any = createRoad({data, scene:scene.current})
+    setRoadModules(doms)
   }
 
+  const onFinish = (val: any) => {
+    const uniqueId = _.uniqueId()
+    const newData = {
+      id: uniqueId,
+      size: val.size,
+      position:{
+          x:0,
+          y:0,
+          z:10
+      },
+      yaw: 0,
+      map:listImgPublic[val.material],
+      type: 1
+      };
+      const newDataArr = [...mapDataVal,newData]
+      setMapDataVal(newDataArr)
+  }
+
+  // 激活模块
+  useEffect(()=>{
+
+  },[activeRoad, roadModules])
+
+  // 初始化基础场景
   useEffect(()=>{
     if(renderRef.current){
         createScene()
-        createBuild()
         animate()
     }
   },[animate])
+
+  // 初始化地形
+  useEffect(()=>{
+    if(mapDataVal.length > saveMapDataVal.current.length){
+       // 新增
+       createBuild(mapDataVal)
+       saveMapDataVal.current = mapDataVal
+
+    }
+
+    if(mapDataVal.length < saveMapDataVal.current.length){
+      // 删除
+      saveMapDataVal.current = mapDataVal
+
+    }
+  },[mapDataVal])
 
     return(
       <div className="root">
@@ -69,9 +117,9 @@ const Editor = () => {
         </Radio.Group>
         </div>
         <div className="left">
-            <RoadEdit />
+            <RoadEdit onFinish={onFinish}/>
         </div>
-        <div className="right">1</div>
+        <div className="right"></div>
         <div className="render-box" ref={renderRef}></div>
       </div>
     )
