@@ -1,22 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useRef } from 'react';
+import { useRef } from "react";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import  Book from '../../components/book'
-import './index.css';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import Book from "../../components/Book";
+import "./index.css";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import bookList from "./config";
 
-const Home = ()  => {
+const Home = () => {
   const progressCircle = useRef<any>(null);
   const progressContent = useRef<any>(null);
   const onAutoplayTimeLeft = (_s: any, time: number, progress: number) => {
-    progressCircle.current.style.setProperty('--progress', 1 - progress);
+    progressCircle.current.style.setProperty("--progress", 1 - progress);
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
   return (
@@ -40,15 +41,15 @@ const Home = ()  => {
         longSwipesMs={1000}
         speed={1000}
       >
-        <SwiperSlide><Book></Book></SwiperSlide>
-        <SwiperSlide>Slide 22222</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {bookList.map(({ nameCover, handleClick, children }) => {
+          return (
+            <SwiperSlide>
+              <Book nameCover={nameCover} handleClick={handleClick}>
+                {children}
+              </Book>
+            </SwiperSlide>
+          );
+        })}
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>
             <circle cx="24" cy="24" r="20"></circle>
@@ -58,6 +59,6 @@ const Home = ()  => {
       </Swiper>
     </>
   );
-}
+};
 
-export default Home
+export default Home;

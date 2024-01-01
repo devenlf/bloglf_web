@@ -50,3 +50,8 @@
   stroke-dasharray: 125.6;
   transform: rotate(-90deg);
 }
+
+.bookChild{
+  text-align: left;
+  text-indent: 48px
+}

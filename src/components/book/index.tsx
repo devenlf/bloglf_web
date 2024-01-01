@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import "./styles.css";
+import SharkButton from "../SharkButton";
 
-function Book() {
+export interface BookType extends React.HTMLProps<HTMLDivElement> {
+  nameCover:string;
+  handleClick: () => void
+}
+
+const Book:FC<BookType> = ({nameCover,children, handleClick}) => {
   const [flipped, setFlipped] = useState(false);
 
   const handleFlip = () => {
@@ -10,12 +16,13 @@ function Book() {
 
   return (
     <div className="book-container">
-      <div className={`book ${flipped ? "flipped" : ""}`} onClick={handleFlip}>
+      <div className={`book ${flipped ? "flipped" : ""}`} onMouseEnter={handleFlip} onMouseLeave={handleFlip}>
         <div className="front-cover">
-          <h1>组件库</h1>
+          <h1 className="name">{nameCover}</h1>
         </div>
         <div className="back-cover">
-          <h1>一探究竟</h1>
+          <div className="introduce">{children}</div>
+          <SharkButton text="前往" onClick={handleClick}/>
         </div>
       </div>
     </div>

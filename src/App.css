@@ -1,4 +1,11 @@
 
+@font-face {
+  font-family: 'LanaPixel';
+  src: url('./assets/font/LanaPixel.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -27,6 +34,8 @@
   }
 }
 
+
+
 .card {
   padding: 2em;
 }
@@ -34,3 +43,4 @@
 .read-the-docs {
   color: #888;
 }
+
