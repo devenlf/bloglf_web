@@ -103,10 +103,10 @@ const bookList:BookType[] = [{
     nameCover:'🎲小程序应用',
     handleClick:()=>{},
     children: <div className="bookContent">
-        <p>"🎲3D-Three✨"</p>
+        <p>"✨小程序应用✨"</p>
         <div className="bookChild">欢迎来到我的 小程序 版块！</div>
-        <div className="bookChild">在这里，我将介绍 Three.js 的核心概念、实际应用场景。</div>
-        <div className="bookChild">Three.js 是一个强大的 JavaScript 3D库，它使得在浏览器中创建令人惊叹的三维图形变得更加容易。</div>
+        <div className="bookChild">在这里，其中包括微信小程序，抖音小程序。</div>
+        <div className="bookChild">通过实用的教程、开发技巧、设计经验等内容，深入浅出地介绍小程序的开发与优化</div>
     </div>
 }]
 
