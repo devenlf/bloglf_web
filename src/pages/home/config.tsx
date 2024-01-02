@@ -65,13 +65,13 @@ const bookList:BookType[] = [{
         <div className="bookChild">我们将深入探讨如何在前端项目中应用算法，以提高性能和解决各种问题。</div>
     </div>
 },{
-    nameCover:'📦Webpack',
+    nameCover:'📦工程搭建',
     handleClick:()=>{},
     children: <div className="bookContent">
-        <p>"📦Webpack✨"</p>
-        <div className="bookChild">欢迎来到Webpack版块！</div>
-        <div className="bookChild">Webpack的实际应用场景以及在前端项目中的重要作用。</div>
-        <div className="bookChild">Webpack是一个强大的模块打包工具，管理项目中的资源，还能提高性能、优化代码。</div>
+        <p>"📦工程搭建✨"</p>
+        <div className="bookChild">欢迎来到工程搭建版块！</div>
+        <div className="bookChild">Webpack等工具的实际应用场景以及在前端项目中的重要作用。</div>
+        <div className="bookChild">一个强大的模块打包工具，有利于管理项目中的资源，还能提高性能、优化代码。</div>
     </div>
 },{
     nameCover:'🚀Node',
@@ -96,6 +96,15 @@ const bookList:BookType[] = [{
     children: <div className="bookContent">
         <p>"🎲3D-Three✨"</p>
         <div className="bookChild">欢迎来到我的 Three.js 版块！</div>
+        <div className="bookChild">在这里，我将介绍 Three.js 的核心概念、实际应用场景。</div>
+        <div className="bookChild">Three.js 是一个强大的 JavaScript 3D库，它使得在浏览器中创建令人惊叹的三维图形变得更加容易。</div>
+    </div>
+},{
+    nameCover:'🎲小程序应用',
+    handleClick:()=>{},
+    children: <div className="bookContent">
+        <p>"🎲3D-Three✨"</p>
+        <div className="bookChild">欢迎来到我的 小程序 版块！</div>
         <div className="bookChild">在这里，我将介绍 Three.js 的核心概念、实际应用场景。</div>
         <div className="bookChild">Three.js 是一个强大的 JavaScript 3D库，它使得在浏览器中创建令人惊叹的三维图形变得更加容易。</div>
     </div>
